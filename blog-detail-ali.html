@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog Detail Ali Nazari</title>
+  </head>
+  <body>
+    <table width="800" align="center" border="0">
+      <tr>
+        <td>
+          <!-- Gambar cover dengan lebar 100% -->
+          <img
+            src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*z_xjOpkmGfs6sBVOEze4Ig.png"
+            width="100%"
+            alt="Cover Blog"
+          />
+
+          <br />
+
+          <!-- Informasi author: photo, username (tebal & di dalam span), tanggal (di dalam span) -->
+          <div>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaRfTKPDFofNKzf1rzIpxaJu3iksNp2Pak2oLnLX8ub6_cReQbfXfic27i&s=10"
+              width="32"
+              height="32"
+              alt="Profile"
+              align="left"
+            />
+            <span><strong>Ali Nazari</strong></span> <br />
+            <span>1 Juni 2025</span>
+          </div>
+
+          <!-- Judul blog menggunakan heading level 1 -->
+          <h1>Securing Redis with ACLs and Integrating Redis Insight in Docker</h1>
+          <p><span>#docker</span>&nbsp;<span>#webdev</span></p>
+
+          <!-- Garis horizontal memisahkan judul dengan konten -->
+          <hr />
+
+          <!-- Isi konten menggunakan paragraf -->
+          <p>
+            Securing your Redis deployment is crucial once you begin relying on it for
+            caching, messaging, or as a primary datastore. Redis 6 introduced an ACL
+            (Access Control List) system that allows you to lock down commands and
+            keys per user. However, enabling ACLs often trips up monitoring tools like
+            Redis Insight, which by default attempt to connect without credentials. In
+            this post, we’ll walk through everything — from writing valid ACL
+            definitions to integrating Redis Insight in Docker — ensuring you end up
+            with a secure, fully observable Redis setup
+          </p>
+
+          <h2>Why ACLs “Break” Redis Insight by Default</h2>
+          <p>
+            Redis Insight, when installed on its own or bundled inside a “Redis Stack”
+            container, assumes it can connect anonymously (no username, no password).
+            As soon as you enable an ACL file, the built-in default user has no
+            permissions (or is turned off), so any unauthenticated client is refused.
+            Under the hood, Redis Insight is running, but cannot authenticate to your
+            ACL’s Redis server, so it never shows the database tree.
+          </p>
+
+          <h2>Model Inputs and Outputs</h2>
+          <p>
+            When you enable ACLs (“aclfile /path/to/users.acl” in your redis.conf),
+            Redis reads that file at startup and refuses to launch if there are any
+            parsing errors.
+          </p>
+
+          <!-- Garis horizontal memisahkan konten dengan komentar -->
+          <hr />
+
+          <!-- Komentar: photo profile dan textarea (3 baris, placeholder spesifik) -->
+          <div>
+            <img
+              src="formal1.png"
+              width="32"
+              height="32"
+              alt="My Profile"
+              valign="top"
+            />
+            <textarea rows="3" placeholder="Add to the discussion"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
